@@ -25,13 +25,15 @@ O formulário permite apenas ficheiros .txt, com tratamento prévio, ou seja, de
 #Vamos lá!
 
 Recursos:
-- Django = 2.2.4
-- Pillow
+-------------
+code:: bash
+	- Django = 2.2.4
+	- Pillow
 
 #Instalação
 -------------
 Instale o pacote executando:
-.. code:: bash
+code:: bash
 
 	pip install Django=2.2.4
 	
@@ -174,7 +176,7 @@ O documento foi submetido a um processo de tratamento a fim de separar os valore
 
 Esta validação estrá presente no código python e o alerta no código html
 
-.. code:: python
+code:: python
    try:
         if form.is_valid():
             formCommit = form.save(commit=False)
@@ -206,7 +208,7 @@ Esta validação estrá presente no código python e o alerta no código html
             messages.success(request, "O ficheiro não está de acordo com o formato esperado.")
             return HttpResponseRedirect(reverse('publicApp:index'))
 
-.. code:: html
+code:: html
 
 	{% if messages %}
                   {% for message in messages %}
