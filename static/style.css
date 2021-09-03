@@ -1,0 +1,105 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+.body {
+  margin: 100px auto;
+  padding: 10px;
+  width: 90%;
+  min-width: 300px;
+}
+
+.alter-danger{
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 1rem;
+  background-color: #ef9a9a;
+  border: 2px solid #b71c1c;
+}
+
+.alter-success{
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 1rem;
+  background-color: #66bb6a;
+  border: 2px solid #2e7d32;
+}
+
+.bgDark{
+  padding: 10px;
+  padding-bottom: 20px;
+  background-color: #f9f9f9;
+  border: 2px solid #e0e0e0;
+}
+
+.center{
+  text-align: center;
+}
+
+h3{
+  font-size: 2em;
+  text-align: center;
+}
+
+
+label.labelFile {
+    background-color: #3370b2;
+    color: white;
+    padding: 0.3rem;
+    font-family: sans-serif;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.btn {
+    background-color: #3eb233;
+    color: white;
+    padding: 0.8rem;
+    font-family: sans-serif;
+    border: none;
+    transition: 0.3s;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: #0e7005;
+}
+
+#file-chosen {
+    margin-left: 0.3rem;
+    font-family: sans-serif;
+}
+
+#table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#table td,
+#table th {
+    border: 1px solid #dedede;
+    padding: 0.8em;
+}
+
+#table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#table tr:hover {
+    background-color: #ddd;
+}
+
+#table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #3370b2;
+    color: white;
+}

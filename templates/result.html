@@ -1,0 +1,49 @@
+ {% extends 'base.html' %} {% load static %} {% block title %} Resultado {% endblock %} {% block content %}
+<div class="body">
+  {% if messages %}
+    {% for message in messages %}
+    <div class="alter-success">
+      <p><strong>{{message}} </strong></p>
+    </div>
+    {% endfor %}
+  {% endif %}
+    <div>
+      <h3>Resultado</h3>
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tipo</th>
+                    <th>Data</th>
+                    <th>Valor</th>
+                    <th>CPF</th>
+                    <th>Cartão</th>
+                    <th>Hora</th>
+                    <th>Dono da loja</th>
+                    <th>Nome da loja</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in objectos %}
+                <tr>
+                    <td>{{forloop.counter }} </td>
+                    <td> {{item.tipo}} </td>
+                    <td>{{item.data}} </td>
+                    <td>R$ {{item.valor}}</td>
+                    <td>{{item.cpf}} </td>
+                    <td>{{item.cartao}} </td>
+                    <td>{{item.hora}} </td>
+                    <td>{{item.donoLoja}} </td>
+                    <td>{{item.nomeLoja}} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+    <h4>Total de resultados: {{total}}</h4>
+    <p>Data do parseamento: {{idFile.dataRegisto}} (Horário UTC-3) </p>
+    <p><a href="{% url 'publicApp:index' %} " class="btn"> Voltar</a></p>
+</div>
+
+{% endblock %}

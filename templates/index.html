@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Página inicial {% endblock %} {% block content %}
+<div class="body">
+    <div class="center">
+        <h3>Formulário de submissão</h3>
+        <p>É permitido apenas ficheiros .txt</p>
+    </div>
+    <div>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+                <div class="">
+                  {{form.file}}
+                </div>
+                <br>
+
+                <div class="bgDark">
+                  <button type="submit" id="btSubmit" onclick="funcaoCarregamento()" class="btn">Processar ficheiro</button>
+                </div>
+
+                {% if messages %}
+                  {% for message in messages %}
+                  <div class="alter-danger">
+                    <p><strong>{{message}} </strong></p>
+                    <p>Não possui o tratamento prévio.</p>
+                  </div>
+                  {% endfor %}
+                {% endif %}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
