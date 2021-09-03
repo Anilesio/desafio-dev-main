@@ -8,12 +8,14 @@ O presente projecto é uma aplicação Django (previamente chamada de Desafio) q
 Testato com Django 2.2.x e Python 3.x
 
 #Observações:
+-------------
 
 Antes de mais agradecer pela oportunidade dada de poder participar neste processo e ter este teste. De facto pude investigar mais e aprender mais coisas que com certea fez toda a diferença na minha bagagem quanto programador.
 
 Li o enunciado do desafio e fiquei mesmo muito entusiamado com os requerimentos, entretanto, infelizmente, alguns não foram concluídos. Propriamente: testes automatiados, docker e o end-point da API, por ainda não possuir conhecimentos profundos nessas áreas. Com certeza me serviu de alerta para que eu comece a estudar a componente prática aplicar estes conceitos, que por agora são apenas teóricos.
 
 #Experiência de usuário
+-------------
 
 Ao usuário é apresentado a um formulário simples contendo campo para upload de ficheiros e um botão de submissão. Após o usuário seleccionar o ficheito (.txt com prévio tratamento) o código salva o ficheiro, faz o "parsamento" e periste os dados na tabela.
 O resultado da operação de "parseamento" é exibida em formato de tabela numa págia seguinte.
@@ -33,37 +35,34 @@ Instale o pacote executando:
 
 	pip install Django=2.2.4
 	
-and:
+	and:
 	pip install Pillow
 
-.. code:: bash
 
 O projecto Django possui uma única app "publicApp"
 
 Em settings.py :
 
-.. code:: python
+code:: python
 
     INSTALLED_APPS = (
                 ...,
                 'publicApp'
                 )
-
-.. code:: bash
                 
-    O formato de hora foi alterado para UTC-3. Para isso, foi preciso mudar o TIME_ZONE padrão do projecto para:
+O formato de hora foi alterado para UTC-3. Para isso, foi preciso mudar o TIME_ZONE padrão do projecto para:
     
-.. code:: python
-    
+code:: python
     TIME_ZONE = 'America/Belem'
     
-    Foi definida um caminho padrão para o upload dos files:
-    
+Foi definida um caminho padrão para o upload dos files:
+    code:: python
     MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media/')
-MEDIA_URL = '/media/'
+	MEDIA_URL = '/media/'
 
 Em admin.py (publicApp):
-.. code:: python
+
+code:: python
 	from django.contrib import admin
 	from .models import *
 	
@@ -78,7 +77,7 @@ Primeiro é salvo o ficheiro.txt em um directório no servidor, depois faz-se re
 
 O constrangimento quanto ao tipo de ficheiro, foi imposto logo na base de dados, atraves do FileExtensionValidator e o valor padrão para data e hora UTC-3 foi possível atravez do timezone.now(), provindo do valor salvo em TIME_ZONE = 'America/Belem' em settings.py
 
-.. code:: python
+code:: python
 	from django.core.validators import FileExtensionValidator
 	from django.forms.utils import from_current_timezone, timezone
 	
@@ -89,15 +88,15 @@ O constrangimento quanto ao tipo de ficheiro, foi imposto logo na base de dados,
 O projecto possui três models:
 
 Onde são salvos os files.txt
-.. code:: python
+code:: python
 	FileSubmit()
 	
 Onde são salvos os tipos de transações. Devendo esta tabela ser preenchacida, antes das outras, por conta da chave estrangeira presente em Document DocumentacaoCNAB().
-.. code:: python
+code:: python
 	TipoTransacoes()
 
 Devendo assim, se criar um superuser, atraves do comando
-.. code:: python
+code:: python
 
 	python3 manage.py createsuperuser
 
@@ -118,7 +117,7 @@ faça o login e deverá preencher os valores da tabela com os seguintes valores:
 
 sendo que o campo Natureza e Sinal serão tranformados em selects  cujo as opções estão armazenadas em variáveis globais com os respectivos nomes.
 
-.. code:: python	
+code:: python	
 	DocumentacaoCNAB()
 
 Na models DocumentacaoCNAB() é onde os dados parseados do file.txt são persistidos
@@ -126,7 +125,7 @@ Na models DocumentacaoCNAB() é onde os dados parseados do file.txt são persist
 
 #Em url.py (publicApp):
 
-.. code:: python
+code:: python
 
 	from django.conf.urls import url
 	from .views import index, result
@@ -140,7 +139,7 @@ Na models DocumentacaoCNAB() é onde os dados parseados do file.txt são persist
 #Em views.py (publicApp):
 
 Conforme já havia frisado, a aplicação pertmite fazer o parseamento de um ficheiro .txt
-.. code:: python
+code:: python
 
 def index(request):
     fileURL = 0
@@ -154,7 +153,8 @@ def index(request):
     return render(request, 'index.html', args)
     
 #Documento bruto
-
+|Valores brutos|
+|----------------|
 |3201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO       |
 |5201903010000013200556418150633123****7687145607MARIA JOSEFINALOJA DO Ó - MATRIZ|
 |3201903010000012200845152540736777****1313172712MARCOS PEREIRAMERCADO DA AVENIDA|
